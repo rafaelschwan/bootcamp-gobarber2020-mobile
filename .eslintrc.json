@@ -22,19 +22,24 @@
       "ecmaVersion": 2018,
       "sourceType": "module"
   },
-  "plugins": [
+  "plugins": [ 
       "react",
       "react-hooks",
       "@typescript-eslint",
       "prettier"
   ],
   "rules": {
+    "import/no-unresolved": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
     "no-unused-expressions": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+     "endOfLine":"auto"
+   }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -44,9 +49,11 @@
       }
     ]
   },
-  "settings": { 
+  "settings": {
     "import/resolver": {
-      "typescript": {}
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }
